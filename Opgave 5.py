@@ -73,7 +73,7 @@ def displaySolution(model: pyomo.ConcreteModel()):
     labels = [0] * model.nrPoints
     #Printer grupperne og deres tilhørende punkter
     for l in model.groups:
-        print('Group', i, 'consists of:')
+        print('Group', l, 'consists of:')
         for i in model.points:
             if pyomo.value(model.x[i, l]) == 1:
                 print(model.State[i], ',', end='')
