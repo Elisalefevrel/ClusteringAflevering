@@ -5,7 +5,6 @@
 
 
 import pyomo.environ as pyomo       # Used for modelling the IP
-import matplotlib.pyplot as plt     # Used to plot the instance
 import numpy as np                  # Used for calculating distances
 import readAndWriteJson as rwJson   # Used to read data from Json file
 
@@ -72,7 +71,6 @@ def solveModel(model: pyomo.ConcreteModel()):
 def displaySolution(model: pyomo.ConcreteModel()):
     print('Optimal sum of distances in clusters:', pyomo.value(model.obj))
     labels = [0] * model.nrPoints
-    ptNumber = list(model.points)
     # Print the groups to promt and save coordinates for plotting
     for i in model.points:
         if pyomo.value(model.y[i]) == 1:
